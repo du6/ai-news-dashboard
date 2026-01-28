@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pulse | Latest AI News & Research</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            background: linear-gradient(45deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .last-updated {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .news-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent);
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .news-source {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .news-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .news-summary {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Pulse 🤖</h1>
+            <div class="last-updated" id="lastUpdated">Updated: Just now</div>
+        </header>
+
+        <main id="newsFeed" class="news-grid">
+            <!-- Content injected via JS -->
+            <div class="loading">Loading latest intelligence...</div>
+        </main>
+    </div>
+
+    <script>
+        // In a real deployment, this would fetch from a backend API or JSON file.
+        // For this static demo, we populate with the data Stephen just found.
+        
+        const newsData = [
+            {
+                title: "OpenAI Releases 'Prism' Research Workspace",
+                source: "Engadget / OpenAI",
+                date: "12 hours ago",
+                summary: "A new dedicated AI workspace for scientific research and coding, featuring the new GPT-5.2 Thinking model and robust LaTeX support. A direct competitor to Claude Code.",
+                url: "https://openai.com/index/introducing-prism/",
+                tags: ["OpenAI", "Prism", "GPT-5.2", "Tools"]
+            },
+            {
+                title: "Karpathy: Claude Code is the First Real AI Agent",
+                source: "X / Dev.to",
+                date: "Jan 27, 2026",
+                summary: "Andrej Karpathy declares Claude Code the first convincing demonstration of an LLM agent, warning that tools like Cursor and Windsurf are now standard productivity requirements.",
+                url: "https://x.com/karpathy",
+                tags: ["Karpathy", "Claude", "Coding", "Agents"]
+            },
+            {
+                title: "Micron HBM Supply Sold Out Through 2026",
+                source: "Seeking Alpha",
+                date: "Jan 27, 2026",
+                summary: "Micron confirms its entire 2026 High Bandwidth Memory (HBM) supply is sold out. DRAM pricing power is returning as AI compute demand outstrips global supply.",
+                url: "https://seekingalpha.com",
+                tags: ["Hardware", "Micron", "HBM", "Market"]
+            },
+            {
+                title: "Redwire (RDW) Selected for $151B Missile Defense Contract",
+                source: "Yahoo Finance",
+                date: "Jan 27, 2026",
+                summary: "Shares surged 29% after selection for the MDA SHIELD contract. A massive validator for space-based defense infrastructure.",
+                url: "https://finance.yahoo.com/quote/RDW/",
+                tags: ["Space", "Defense", "Stocks"]
+            },
+            {
+                title: "Google Antitrust Remedies Delayed to 2026+",
+                source: "Reuters",
+                date: "Jan 20, 2026",
+                summary: "Legal timelines suggest any 'breakup' or major remedies for Google Search will be tied up in appeals until at least 2028, reducing near-term risk.",
+                url: "https://reuters.com",
+                tags: ["Google", "Regulation", "Market"]
+            }
+        ];
+
+        function renderNews() {
+            const feed = document.getElementById('newsFeed');
+            feed.innerHTML = '';
+
+            newsData.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <div class="news-meta">
+                        <span class="news-source">${item.source}</span>
+                        <span>•</span>
+                        <span>${item.date}</span>
+                    </div>
+                    <h2 class="news-title">
+                        <a href="${item.url}" target="_blank">${item.title}</a>
+                    </h2>
+                    <p class="news-summary">${item.summary}</p>
+                    <div class="tags">
+                        ${item.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                    </div>
+                `;
+                feed.appendChild(card);
+            });
+
+            document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+        }
+
+        // Render immediately
+        renderNews();
+    </script>
+</body>
+</html>
