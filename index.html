@@ -208,18 +208,26 @@
 
         const marketData = [
             {
-                title: "Apple Acquires Audio AI Startup Q.ai",
-                source: "Reuters / Calcalist",
+                title: "Apple Acquires Audio AI Startup Q.ai ($2B)",
+                source: "The Information / Yahoo",
                 date: "Jan 29, 2026",
-                summary: "Apple has acquired Israeli audio AI startup Q.ai for an estimated $1.5 billion. The tech giant confirmed the deal, signaling a push into advanced audio processing for Siri and AirPods.",
-                url: "https://www.reuters.com/business/apple-acquires-audio-ai-startup-qai-2026-01-29/",
+                summary: "Apple has acquired Israeli audio AI startup Q.ai for ~$2 billion. The tech reads facial micro-movements to support 'non-verbal' AI interactions.",
+                url: "https://finance.yahoo.com/news/apples-first-quarter-earnings-will-focus-on-iphone-sales-ai-outlook-170801438.html",
                 tags: ["Acquisition", "Apple", "AudioAI"]
+            },
+            {
+                title: "Apple & Google Seal Gemini AI Deal",
+                source: "Yahoo Finance",
+                date: "Jan 29, 2026",
+                summary: "Apple confirms a multi-year partnership to integrate Google's Gemini models into Siri, powering more conversational and complex queries across iOS.",
+                url: "https://finance.yahoo.com/news/apple-gemini-deal-recasts-siri-120932009.html",
+                tags: ["Partnership", "Apple", "Google"]
             },
             {
                 title: "Apple Crushes Q1 Earnings (+16%)",
                 source: "CNBC / Earnings",
                 date: "Jan 29, 2026",
-                summary: "Apple revenue soared 16% YoY, driven by record iPhone sales and a major turnaround in Greater China. The company also confirmed a partnership with Google Gemini.",
+                summary: "Apple revenue soared 16% YoY, driven by record iPhone sales and a major turnaround in Greater China.",
                 url: "https://www.cnbc.com/2026/01/29/apple-aapl-earnings-report-q1-2026.html",
                 tags: ["Stocks", "Apple", "Earnings"]
             },
@@ -299,7 +307,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 14:15 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 15:15 PST';
         }
 
         renderFeeds();
