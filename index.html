@@ -157,6 +157,14 @@
     <script>
         const researchData = [
             {
+                title: "MIT Study: Clinical AI Models Memorize Patient Data",
+                source: "MIT News / Jameel Clinic",
+                date: "Jan 2026",
+                summary: "Researchers investigate how AI models trained on de-identified electronic health records can still memorize and leak patient-specific information through targeted prompts.",
+                url: "https://news.mit.edu/2026/mit-scientists-investigate-memorization-risk-clinical-ai-0105",
+                tags: ["Privacy", "Health", "Safety"]
+            },
+            {
                 title: "\"Vibe Coding\" Kills Open Source Ecosystems",
                 source: "arXiv:2601.15494",
                 date: "Jan 2026",
@@ -283,7 +291,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 07:40 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 09:00 PST';
         }
 
         renderFeeds();
