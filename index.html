@@ -208,6 +208,22 @@
 
         const marketData = [
             {
+                title: "Apple Crushes Q1 Earnings",
+                source: "CNBC / Earnings",
+                date: "Jan 29, 2026",
+                summary: "Apple revenue soared 16% YoY, surpassing expectations for the crucial holiday quarter, driven by strong iPhone demand and AI feature rollouts.",
+                url: "https://www.cnbc.com/2026/01/29/apple-aapl-earnings-report-q1-2026.html",
+                tags: ["Stocks", "Apple", "Earnings"]
+            },
+            {
+                title: "Market Close: Tech Divergence",
+                source: "Morningstar / Schwab",
+                date: "Jan 29, 2026",
+                summary: "Markets rose slightly as investors digested a Fed pause. Meta and Tesla surged on earnings, while Microsoft slumped 7% on cloud growth concerns.",
+                url: "https://www.schwab.com/learn/story/stock-market-update-open",
+                tags: ["Market", "Tech", "Fed"]
+            },
+            {
                 title: "Seagate (STX) Surges 19% on AI Storage Demand",
                 source: "Yahoo Finance",
                 date: "Jan 29, 2026",
@@ -232,28 +248,12 @@
                 tags: ["VC", "Infrastructure", "Investment"]
             },
             {
-                title: "Microsoft Research: High-Skill Jobs Most Exposed to AI",
-                source: "Fortune",
-                date: "Jan 19, 2026",
-                summary: "A new study identifies finance, legal, and software engineering roles as most exposed to AI automation. 'Exposure' implies a restructuring of responsibilities rather than total replacement.",
-                url: "https://fortune.com/article/what-are-the-jobs-most-exposed-to-ai-microsoft-research/",
-                tags: ["Research", "Labor", "FutureOfWork"]
-            },
-            {
                 title: "JPMorgan Reclassifies AI Spending as 'Core Infrastructure'",
                 source: "Yahoo Finance",
                 date: "Jan 19, 2026",
                 summary: "JPMorgan Chase has shifted its AI strategy, moving investments from experimental R&D to 'core infrastructure', signaling that AI is now essential for maintaining a competitive edge.",
                 url: "https://finance.yahoo.com/news/jpmorgan-says-where-investing-ai-174659867.html",
                 tags: ["Finance", "Enterprise", "Strategy"]
-            },
-            {
-                title: "Apple Signals AI Assistants as Core Battleground",
-                source: "TechCrunch",
-                date: "Jan 26, 2026",
-                summary: "Apple's latest moves indicate that deep integration of AI assistants is their new strategic priority, with partnerships likely deciding the winners in the ecosystem wars.",
-                url: "https://techstartups.com/2026/01/26/top-tech-news-today-january-26-2026/",
-                tags: ["Apple", "Assistants", "Strategy"]
             },
             {
                 title: "Advantest Ramps Capacity for AI Chip Testing",
@@ -291,7 +291,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 09:00 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 13:50 PST';
         }
 
         renderFeeds();
