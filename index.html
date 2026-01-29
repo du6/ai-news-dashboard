@@ -208,10 +208,18 @@
 
         const marketData = [
             {
-                title: "Apple Crushes Q1 Earnings",
+                title: "Apple Acquires Audio AI Startup Q.ai",
+                source: "Reuters / Calcalist",
+                date: "Jan 29, 2026",
+                summary: "Apple has acquired Israeli audio AI startup Q.ai for an estimated $1.5 billion. The tech giant confirmed the deal, signaling a push into advanced audio processing for Siri and AirPods.",
+                url: "https://www.reuters.com/business/apple-acquires-audio-ai-startup-qai-2026-01-29/",
+                tags: ["Acquisition", "Apple", "AudioAI"]
+            },
+            {
+                title: "Apple Crushes Q1 Earnings (+16%)",
                 source: "CNBC / Earnings",
                 date: "Jan 29, 2026",
-                summary: "Apple revenue soared 16% YoY, surpassing expectations for the crucial holiday quarter, driven by strong iPhone demand and AI feature rollouts.",
+                summary: "Apple revenue soared 16% YoY, driven by record iPhone sales and a major turnaround in Greater China. The company also confirmed a partnership with Google Gemini.",
                 url: "https://www.cnbc.com/2026/01/29/apple-aapl-earnings-report-q1-2026.html",
                 tags: ["Stocks", "Apple", "Earnings"]
             },
@@ -291,7 +299,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 13:50 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 14:15 PST';
         }
 
         renderFeeds();
