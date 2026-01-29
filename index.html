@@ -216,6 +216,9 @@
                     <div class="tags">
                         ${item.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
                     </div>
+                    <div style="margin-top: 1rem; font-size: 0.875rem;">
+                        <a href="${item.url}" target="_blank" style="color: var(--accent); text-decoration: none;">Read source →</a>
+                    </div>
                 `;
                 feed.appendChild(card);
             });
