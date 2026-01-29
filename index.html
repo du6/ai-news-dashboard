@@ -143,17 +143,62 @@
             <div class="last-updated" id="lastUpdated">Updated: Just now</div>
         </header>
 
-        <main id="newsFeed" class="news-grid">
-            <!-- Content injected via JS -->
-            <div class="loading">Loading latest intelligence...</div>
+        <h2 style="color: var(--text-secondary); margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">🔬 Latest Research & Papers</h2>
+        <main id="researchFeed" class="news-grid" style="margin-top: 1.5rem; margin-bottom: 3rem;">
+            <!-- Research injected via JS -->
+        </main>
+
+        <h2 style="color: var(--text-secondary); margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">📈 Market & Industry Moves</h2>
+        <main id="marketFeed" class="news-grid" style="margin-top: 1.5rem;">
+            <!-- Market news injected via JS -->
         </main>
     </div>
 
     <script>
-        // In a real deployment, this would fetch from a backend API or JSON file.
-        // For this static demo, we populate with the data Stephen just found.
-        
-        const newsData = [
+        const researchData = [
+            {
+                title: "\"Vibe Coding\" Kills Open Source Ecosystems",
+                source: "arXiv:2601.15494",
+                date: "Jan 2026",
+                summary: "New paper argues that AI agents assembling code without user engagement disconnects maintainers from feedback loops, threatening the sustainability of open source projects.",
+                url: "https://arxiv.org/abs/2601.15494",
+                tags: ["Research", "OpenSource", "CodingAgents"]
+            },
+            {
+                title: "DeepSeek Releases R1 Open Source Reasoning Model",
+                source: "MIT Tech Review / DeepSeek",
+                date: "Jan 2026",
+                summary: "Chinese lab DeepSeek shocks the industry with R1, a powerful open-source reasoning model that rivals proprietary giants, demonstrating high performance with limited resources.",
+                url: "https://www.technologyreview.com/2026/01/05/1130662/whats-next-for-ai-in-2026/",
+                tags: ["DeepSeek", "OpenSource", "Models"]
+            },
+            {
+                title: "Reimagining Peer Review via Multi-Agent Systems",
+                source: "arXiv:2601.19778",
+                date: "Jan 2026",
+                summary: "Proposes a multi-agent mechanism design to automate and improve the scientific peer review process, to be presented at ICSE-FoSE 2026.",
+                url: "https://arxiv.org/abs/2601.19778",
+                tags: ["Research", "Agents", "Science"]
+            },
+            {
+                title: "Stanford/Yale Study: Models Reproduce Copyrighted Text",
+                source: "HumAI Blog",
+                date: "Jan 2026",
+                summary: "Researchers find that major models (GPT-4.1, Gemini 2.5 Pro, Claude 3.7) can reproduce copyrighted content with stunning accuracy, raising new IP concerns.",
+                url: "https://www.humai.blog/ai-news-trends-january-2026-complete-monthly-digest/",
+                tags: ["Copyright", "Safety", "Evaluation"]
+            },
+            {
+                title: "NanoLang: An LLM-Friendly Programming Language",
+                source: "Medium / Jordan Hubbard",
+                date: "Jan 2026",
+                summary: "FreeBSD co-founder releases NanoLang, a language explicitly designed to be easier for Large Language Models to read, write, and generate correctly.",
+                url: "https://medium.com/last-week-in-ai/last-week-in-ai-january-19-26-2026-9853b9adb132",
+                tags: ["Coding", "Languages", "Tools"]
+            }
+        ];
+
+        const marketData = [
             {
                 title: "Seagate (STX) Surges 19% on AI Storage Demand",
                 source: "Yahoo Finance",
@@ -172,7 +217,7 @@
             },
             {
                 title: "a16z Bets $3B Against the 'AI Bubble'",
-                source: "Economic Times / CAIAS",
+                source: "Economic Times",
                 date: "Jan 21, 2026",
                 summary: "Andreessen Horowitz (a16z) has set up a dedicated war chest to bet on AI infrastructure, doubling down while others fear a bubble. The firm defines infra broadly beyond just chips.",
                 url: "https://economictimes.indiatimes.com/tech/funding/andreessen-horowitz-makes-a-3-billion-bet-against-the-ai-bubble/articleshow/126682104.cms",
@@ -180,7 +225,7 @@
             },
             {
                 title: "Microsoft Research: High-Skill Jobs Most Exposed to AI",
-                source: "Fortune / Crescendo",
+                source: "Fortune",
                 date: "Jan 19, 2026",
                 summary: "A new study identifies finance, legal, and software engineering roles as most exposed to AI automation. 'Exposure' implies a restructuring of responsibilities rather than total replacement.",
                 url: "https://fortune.com/article/what-are-the-jobs-most-exposed-to-ai-microsoft-research/",
@@ -188,22 +233,33 @@
             },
             {
                 title: "JPMorgan Reclassifies AI Spending as 'Core Infrastructure'",
-                source: "Yahoo Finance / Crescendo",
+                source: "Yahoo Finance",
                 date: "Jan 19, 2026",
                 summary: "JPMorgan Chase has shifted its AI strategy, moving investments from experimental R&D to 'core infrastructure', signaling that AI is now essential for maintaining a competitive edge.",
                 url: "https://finance.yahoo.com/news/jpmorgan-says-where-investing-ai-174659867.html",
                 tags: ["Finance", "Enterprise", "Strategy"]
+            },
+            {
+                title: "Apple Signals AI Assistants as Core Battleground",
+                source: "TechCrunch",
+                date: "Jan 26, 2026",
+                summary: "Apple's latest moves indicate that deep integration of AI assistants is their new strategic priority, with partnerships likely deciding the winners in the ecosystem wars.",
+                url: "https://techstartups.com/2026/01/26/top-tech-news-today-january-26-2026/",
+                tags: ["Apple", "Assistants", "Strategy"]
+            },
+            {
+                title: "Advantest Ramps Capacity for AI Chip Testing",
+                source: "Tech Startups",
+                date: "Jan 28, 2026",
+                summary: "Critical supply chain chokepoint: Advantest is accelerating production of semiconductor test equipment as AI chip complexity demands more rigorous testing.",
+                url: "https://techstartups.com/2026/01/28/top-tech-news-today-january-28-2026/",
+                tags: ["Hardware", "SupplyChain", "Semiconductors"]
             }
         ];
 
-        function renderNews() {
-            const feed = document.getElementById('newsFeed');
-            feed.innerHTML = '';
-
-            newsData.forEach(item => {
-                const card = document.createElement('article');
-                card.className = 'news-card';
-                card.innerHTML = `
+        function createCard(item) {
+            return `
+                <article class="news-card">
                     <div class="news-meta">
                         <span class="news-source">${item.source}</span>
                         <span>•</span>
@@ -219,15 +275,17 @@
                     <div style="margin-top: 1rem; font-size: 0.875rem;">
                         <a href="${item.url}" target="_blank" style="color: var(--accent); text-decoration: none;">Read source →</a>
                     </div>
-                `;
-                feed.appendChild(card);
-            });
+                </article>
+            `;
+        }
 
+        function renderFeeds() {
+            document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
+            document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             document.getElementById('lastUpdated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
         }
 
-        // Render immediately
-        renderNews();
+        renderFeeds();
     </script>
 </body>
 </html>
