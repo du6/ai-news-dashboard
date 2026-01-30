@@ -216,6 +216,14 @@
 
         const marketData = [
             {
+                title: "Market Open: Whirlpool Dives 10%, IBM & CAT Surge",
+                source: "CNBC / Schwab",
+                date: "Jan 30, 2026",
+                summary: "Markets opened with significant moves: Whirlpool (WHR) dropped 10% on an earnings miss, while IBM (+7.4%) and Caterpillar (+4.1%) rallied on strong results.",
+                url: "https://www.cnbc.com/2026/01/28/stock-market-today-live-updates.html",
+                tags: ["Market", "Earnings", "Stocks"]
+            },
+            {
                 title: "Trump Nominates Kevin Warsh as Fed Chair",
                 source: "The Guardian / CNBC",
                 date: "Jan 30, 2026",
@@ -331,7 +339,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 30, 2026 04:30 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 30, 2026 07:05 PST';
         }
 
         renderFeeds();
