@@ -208,6 +208,14 @@
 
         const marketData = [
             {
+                title: "Trump Expected to Tap Kevin Warsh as Fed Chair",
+                source: "NYT / Reuters",
+                date: "Jan 30, 2026",
+                summary: "President Trump is expected to announce former Fed Governor Kevin Warsh as his pick to replace Jerome Powell as Federal Reserve Chair on Friday morning.",
+                url: "https://www.nytimes.com/2026/01/29/business/trump-expected-to-announce-kevin-warsh-as-fed-chair.html",
+                tags: ["Fed", "Economy", "Trump"]
+            },
+            {
                 title: "Apple Acquires Audio AI Startup Q.ai ($2B)",
                 source: "The Information / Yahoo",
                 date: "Jan 29, 2026",
@@ -307,7 +315,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 15:15 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 23:55 PST';
         }
 
         renderFeeds();
