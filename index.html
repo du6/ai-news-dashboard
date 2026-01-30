@@ -157,6 +157,14 @@
     <script>
         const researchData = [
             {
+                title: "DeepSeek-R1 Paper Major Update",
+                source: "DeepSeek / Reddit",
+                date: "Jan 30, 2026",
+                summary: "DeepSeek has released a significantly expanded version of their R1 technical report (now 86+ pages), adding extensive details on training data, reinforcement learning dynamics, and distillation recipes.",
+                url: "https://github.com/deepseek-ai/DeepSeek-R1",
+                tags: ["DeepSeek", "Research", "OpenSource"]
+            },
+            {
                 title: "MIT Study: Clinical AI Models Memorize Patient Data",
                 source: "MIT News / Jameel Clinic",
                 date: "Jan 2026",
@@ -207,6 +215,14 @@
         ];
 
         const marketData = [
+            {
+                title: "Trump Nominates Kevin Warsh as Fed Chair",
+                source: "The Guardian / CNBC",
+                date: "Jan 30, 2026",
+                summary: "President Trump has officially nominated former Fed Governor Kevin Warsh to replace Jerome Powell as Chairman of the Federal Reserve, ending weeks of speculation.",
+                url: "https://www.theguardian.com/business/live/2026/jan/30/trump-federal-reserve-chair-nominee-eurozone-gdp-french-economy-slows-business-live-news-updates",
+                tags: ["Fed", "Economy", "Trump"]
+            },
             {
                 title: "Trump Expected to Tap Kevin Warsh as Fed Chair",
                 source: "NYT / Reuters",
@@ -315,7 +331,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 29, 2026 23:55 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 30, 2026 04:30 PST';
         }
 
         renderFeeds();
