@@ -216,12 +216,20 @@
 
         const marketData = [
             {
-                title: "AmEx Slides (-3%), Verizon Surges (+6.6%)",
+                title: "Jan Market Close: Stocks Gain, Gold Plummets",
+                source: "Investopedia / CNBC",
+                date: "Jan 30, 2026",
+                summary: "Stocks finished January with solid gains (S&P +1.2%, Dow +1.6%) despite a sluggish final day. Gold and silver plummeted, while small caps (Russell 2000) saw outsized losses of -1.5% to end the week.",
+                url: "https://www.investopedia.com/dow-jones-today-01302026-11895896",
+                tags: ["MarketClose", "Gold", "MonthlyRecap"]
+            },
+            {
+                title: "Verizon Surges 11% on Strong Guidance",
                 source: "Trading Economics",
                 date: "Jan 30, 2026",
-                summary: "American Express tumbled 3.1% after an earnings miss, while Verizon jumped 6.6% on strong results. Chevron also posted a slight gain (+0.5%) after beating profit expectations.",
+                summary: "Verizon (VZ) ended the day up nearly 12% after raising its full-year guidance. Chevron (+3.3%) also beat profit expectations, while AmEx (-1.8%) and Exxon (-0.7%) slipped.",
                 url: "https://tradingeconomics.com/united-states/stock-market",
-                tags: ["Earnings", "Market", "Stocks"]
+                tags: ["Earnings", "Verizon", "Chevron"]
             },
             {
                 title: "Market Open: Whirlpool Dives 10%, IBM & CAT Surge",
@@ -347,7 +355,7 @@
             document.getElementById('researchFeed').innerHTML = researchData.map(createCard).join('');
             document.getElementById('marketFeed').innerHTML = marketData.map(createCard).join('');
             // Static timestamp representing the last content update
-            document.getElementById('lastUpdated').textContent = 'Updated: Jan 30, 2026 08:45 PST';
+            document.getElementById('lastUpdated').textContent = 'Updated: Jan 30, 2026 16:45 PST';
         }
 
         renderFeeds();
